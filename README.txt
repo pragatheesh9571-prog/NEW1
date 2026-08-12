@@ -1,0 +1,1 @@
+PRAGA FUTURISTIC PORTFOLIO\nOpen index.html in a browser or use VS Code Live Server. Replace email, GitHub and LinkedIn placeholders in index.html with your details.\n
