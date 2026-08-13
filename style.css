@@ -612,16 +612,6 @@ header {
         0 20px 70px rgba(124,58,237,.4);
 }
 
-.avatar img {
-    width: 100%;
-    height: 100%;
-    display: block;
-    object-fit: cover;
-    object-position: 67% 35%;
-    border-radius: inherit;
-    filter: saturate(1.08) contrast(1.03);
-}
-
 .avatar-ring {
     position: absolute;
 
@@ -1659,17 +1649,7 @@ footer small {
         font-size: 60px;
     }
 
-    .avatar img {
-    width: 100%;
-    height: 100%;
-    display: block;
-    object-fit: cover;
-    object-position: 67% 35%;
-    border-radius: inherit;
-    filter: saturate(1.08) contrast(1.03);
-}
-
-.avatar-ring {
+    .avatar-ring {
         width: 140px;
         height: 140px;
 
@@ -1754,4 +1734,162 @@ footer small {
         background: rgba(8,8,12,.95);
         backdrop-filter: blur(20px);
     }
+}
+/* PROFILE PHOTO */
+.avatar {
+    overflow: hidden;
+    position: relative;
+}
+
+.avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+    border-radius: inherit;
+    filter: saturate(1.05) contrast(1.02);
+}
+
+
+/* =========================================================
+   FINAL MOBILE-FIRST RESPONSIVE FIX
+   ========================================================= */
+@media (max-width: 900px) {
+    html, body { width:100%; max-width:100%; overflow-x:hidden; }
+    * { box-sizing:border-box; max-width:100%; }
+
+    .container, .hero, .section, .contact-section {
+        width:100%;
+        max-width:100%;
+    }
+
+    .hero {
+        grid-template-columns:1fr;
+        padding:110px 18px 65px;
+        gap:30px;
+        min-height:auto;
+    }
+
+    .hero-left { min-width:0; width:100%; }
+    .hero-right { min-width:0; width:100%; min-height:390px; }
+
+    .hero h1 {
+        font-size:clamp(48px, 15vw, 76px);
+        line-height:.9;
+        letter-spacing:-3px;
+        overflow-wrap:anywhere;
+    }
+
+    .hero-description, .hero-role { max-width:100%; overflow-wrap:anywhere; }
+
+    .hero-buttons {
+        display:flex;
+        flex-wrap:wrap;
+        gap:10px;
+    }
+
+    .hero-buttons .btn { min-width:0; }
+
+    .about-grid, .contact-grid { grid-template-columns:1fr; }
+    .projects-grid { grid-template-columns:1fr; }
+    .skills-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+}
+
+@media (max-width:600px) {
+    header { padding:0 14px; }
+    .navbar { padding:14px 0; }
+    .nav-links, .nav-contact { display:none; }
+    .menu-btn { display:block; }
+
+    .hero {
+        width:100%;
+        padding:100px 16px 55px;
+        gap:18px;
+    }
+
+    .hero h1 {
+        font-size:clamp(45px, 16vw, 68px);
+        letter-spacing:-3px;
+    }
+
+    .hero-role { font-size:14px; }
+    .hero-description { font-size:14px; line-height:1.7; }
+
+    .hero-buttons {
+        width:100%;
+        flex-direction:column;
+    }
+    .hero-buttons .btn {
+        width:100%;
+        justify-content:center;
+    }
+
+    .hero-right {
+        min-height:360px;
+        transform:none;
+        overflow:hidden;
+    }
+
+    .orbit-1 { width:250px; height:250px; }
+    .orbit-2 { width:310px; height:310px; }
+    .orbit-3 { width:370px; height:370px; }
+
+    .profile-card {
+        width:min(230px, 72vw);
+        height:295px;
+    }
+
+    .avatar { width:110px; height:110px; }
+    .avatar-ring { width:130px; height:130px; }
+
+    .terminal {
+        width:min(215px, 68vw);
+        right:0;
+        bottom:0;
+    }
+
+    .section {
+        width:100%;
+        padding:70px 16px;
+    }
+
+    .section-heading {
+        font-size:clamp(40px, 12vw, 56px);
+        line-height:.95;
+        letter-spacing:-2px;
+    }
+
+    .skills-grid { grid-template-columns:1fr; }
+    .projects-grid { grid-template-columns:1fr; }
+
+    .about-stats {
+        grid-template-columns:repeat(3,minmax(0,1fr));
+        gap:8px;
+    }
+
+    .about-stats strong { font-size:22px; }
+    .about-stats span { font-size:8px; }
+
+    .contact-section {
+        width:calc(100% - 24px);
+        padding:45px 18px;
+        margin:0 auto;
+    }
+
+    .contact-grid h2 {
+        font-size:clamp(38px, 11vw, 50px);
+        overflow-wrap:anywhere;
+    }
+
+    img, svg, video, canvas { max-width:100%; }
+}
+
+@media (max-width:380px) {
+    .hero { padding-left:13px; padding-right:13px; }
+    .hero h1 { font-size:48px; letter-spacing:-2.5px; }
+    .hero-right { min-height:330px; }
+    .profile-card { transform:scale(.9); }
+    .terminal { transform:scale(.9); transform-origin:bottom right; }
+    .section { padding-left:13px; padding-right:13px; }
 }
